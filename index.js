@@ -30,7 +30,7 @@ let topicAPI = (req, res) => {
 
         let dom = new DOMParser().parseFromString(data,'text/xml');
         dom.getElementsByTagName('data')[0].setAttribute('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
-        // dom.getElementsByTagName('data').setAttribute('xsi:noNamespaceSchemaLocation' : 'http://www.w3.org/2001/XMLSchema-instance');
+        dom.getElementsByTagName('data')[0].setAttribute('xsi:noNamespaceSchemaLocation','https://github.com/lisirrx/ZhihuApiBackend/raw/master/data.xsd');
         res.end(new XMLSerializer().serializeToString(dom));
     });
 };
